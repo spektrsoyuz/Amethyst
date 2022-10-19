@@ -1,0 +1,36 @@
+package dev.spektrsoyuz.amethyst.command;
+
+import dev.spektrsoyuz.amethyst.Main;
+import dev.spektrsoyuz.amethyst.util.ChatUtils;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+
+/*---------------------------------------------------------------------------------------------------------------------+
+|                                                                                                                      |
+|                                                    Hello Command                                                     |
+|                                                                                                                      |
++---------------------------------------------------------------------------------------------------------------------*/
+public class HelloCommand implements CommandExecutor {
+
+    Main plugin;
+    public HelloCommand(Main pl) {
+        plugin = pl;
+    }
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+
+        if (command.getName().equalsIgnoreCase("hello")) {
+            Player p = (Player) sender;
+
+            p.sendMessage(ChatUtils.format("&aHello there, &f" + p.getDisplayName() + "&a !"));
+            return true;
+        }
+
+        // Return with debug message
+        return false;
+    }
+}

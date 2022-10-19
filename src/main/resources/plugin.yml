@@ -1,0 +1,4 @@
+name: Amethyst
+version: '${project.version}'
+main: dev.spektrsoyuz.amethyst.Main
+api-version: 1.19
